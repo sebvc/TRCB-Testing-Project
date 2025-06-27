@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CFlbTermDef" SubType="9099">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety" TcBaseType="true">FSOE_6</Name>
+			<BitSize>48</BitSize>
+			<SubItem>
+				<Name>FSoE CMD</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE Data</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000032}">BITARR8</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE CRC_0</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE ConnID</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{B05FDAB7-3241-ACD3-D16C-0FDAF8825BC9}" AutoDeleteType="true">FSOE_7</Name>
+			<BitSize>56</BitSize>
+			<SubItem>
+				<Name>FSoE CMD</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE Data 0</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000033}">BITARR16</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE CRC_0</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE ConnID</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..5] OF BIT</Name>
+			<BitSize>6</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000010}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..1] OF BYTE</Name>
+			<BitSize>16</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>2</Elements>
+			</ArrayInfo>
+		</DataType>
+	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a002000000000000000000000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff008066008099008066008099008066ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00ffff00000000ffff000000008099ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00ffff00ffff00ffff00ffff008066ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00ffff00ffff00ffff00ffff008099ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00ffff00000000ffff000000008066ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00ffffff000000ffffff0000008099ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00ffff00ffff00ffff00ffff008066ff00ffff00ffff00ffff00ffff00ff66009999006666009999006666009999006600ffff00000000ffff000000008099ff00ffff00ffff00ffff00ffff00ff99006666009999006666009999006666009900ffff0000ff00ffff0000ff008066ff00ffff00ffff00ffff00ffff00ff66009999006666009999006666009999006600ffff00ffff00ffff00ffff008099ff00ffff00ffff00ffff00ffff00ff99006666009999006666009999006666009900ffff00000000ffff000000008066ff00ffff00ffff00ffff00ffff00ff66009999006666009999006666009999006600ffff00ffff00ffff00ffff008099ff00ffff00ffff00ffff00ffff00ff99006666009999006666009999006666009900ffff00800000ffff008000008066ff00ffff00ffff00ffff00ffff00ff66009999006666009999006666009999006600ffff00ffff00ffff00ffff008099ff00ffff00ffff00ffff00ffff00ff</ImageData>
+	</ImageDatas>
+	<Box Id="8" BoxType="9099" BoxFlags="#x00000020">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<EtherCAT SlaveType="2" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="3" FoeType="1" VendorId="#x00000002" ProductCode="#x0b603052" RevisionNo="#x00100000" InfoDataAddr="true" RepeatSupport="true" TimeoutStateChange1="5000" TimeoutMailbox2="10000" TComSupport="true" PortPhys="51" DebugMemory="8" SafetyLogicSupported="true" MaxSlotCount="4" Type="EL2912, 2Ch. Safety Output 24V, 2A, TwinSAFE" Desc="EL2912">
+			<SyncMan>001000012600010001000000000100010001001026010000</SyncMan>
+			<SyncMan>001100012200010002000000000100010001001122010000</SyncMan>
+			<SyncMan>00120a002400010003000000000000000700001224010000</SyncMan>
+			<SyncMan>001d09002000010004000000000000000900001d20010000</SyncMan>
+			<SyncMan>002e00002400000003000000000000000000002e24000000</SyncMan>
+			<SyncMan>002f00002000000004000000000000000000002f20000000</SyncMan>
+			<SyncMan>fa2f01002400010003000000000000000200fa2f24010000</SyncMan>
+			<Fmmu>0000000000000000001200020100000001000000060000000200000000000000</Fmmu>
+			<Fmmu>0000000000000000001d00010100000002000000060000000300000000000000</Fmmu>
+			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+			<Fmmu>0000000000000000000000020000000001000000060000000400010000000000</Fmmu>
+			<Fmmu>0000000000000000000000010000000002000000060000000500010000000000</Fmmu>
+			<Fmmu>0000000000000000fa2f00020100000001000000060000000600020000000000</Fmmu>
+			<BootStrapData>0010f400f410f400</BootStrapData>
+			<SuName></SuName>
+			<SuName></SuName>
+			<SuName></SuName>
+			<SuName></SuName>
+			<SuTask>#x00000000</SuTask>
+			<SuTask>#x00000000</SuTask>
+			<SuTask>#x00000000</SuTask>
+			<SuTask>#x00000000</SuTask>
+			<MBoxUserCmdData>004003000a00000000000000000000000000000000000000000000000000000020f3100502000000010000</MBoxUserCmdData>
+			<Pdo Name="ConnectionInputs" Index="#x1a00" Flags="#x2011" SyncMan="3">
+				<Entry Name="Message_3 TxPDO" Index="#x7000" Sub="#x01">
+					<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="ConnectionOutputs" Index="#x1600" InOut="1" Flags="#x2011" SyncMan="2">
+				<Entry Name="Message_3 RxPDO" Index="#x6000" Sub="#x01">
+					<Type GUID="{B05FDAB7-3241-ACD3-D16C-0FDAF8825BC9}">FSOE_7</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="StandardOutputs" Index="#x17f0" InOut="1" Flags="#x2011" SyncMan="2">
+				<Entry Name="Standard In Var 1" Index="#x6000" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Standard In Var 2" Index="#x6000" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="Outputs" Index="#x17fe" InOut="1" Flags="#x0091" SyncMan="6" SyncUnit="2">
+				<Entry Name="Module 1.Standard Output" BitLen="1" Index="#x7003" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 2.Standard Output" BitLen="1" Index="#x7013" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="FIELDVOLTAGE Field Voltage Status" Index="#x1bfe" Flags="#x0091" SyncMan="3">
+				<Entry Name="Fieldvoltage Underrange" BitLen="1" Index="#xf6c0" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Fieldvoltage Overrange" BitLen="1" Index="#xf6c0" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="FSLOGIC Inputs" Index="#x1bff" Flags="#x0091" SyncMan="3">
+				<Entry Name="Safe Logic State" BitLen="8" Index="#xf100" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="Cycle Counter" BitLen="8" Index="#xf100" Sub="#x02">
+					<Type>USINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="FSLOGIC Outputs" Index="#x17ff" InOut="1" Flags="#x0091" SyncMan="2">
+				<Entry BitLen="16">
+					<Type GUID="{18071995-0000-0000-0000-002000000010}">ARRAY [0..1] OF BYTE</Type>
+				</Entry>
+			</Pdo>
+			<CoeProfile ProfileNo="19075977"/>
+			<CoeProfile ProfileNo="19075977"/>
+			<CoeProfile ProfileNo="45290377"/>
+			<Slot Name="FSOE-Slot">
+				<SlotData>0000000001000400000000000000000000000000000000000000000000000000</SlotData>
+				<ModuleIdent>2912</ModuleIdent>
+			</Slot>
+			<Slot Name="FSOUT-Slot">
+				<SlotData>0000010001000400000000000000000000000000000000000000000000000000</SlotData>
+				<ModuleIdent>201</ModuleIdent>
+				<Module Id="#x03090004" Type="FSOUT" Class="FSOUT">
+					<Name>Module 2 (FSOUT)</Name>
+					<ImageId>550</ImageId>
+					<ModuleData>02000000c9000000000004000000000000000000000000000000000000000000</ModuleData>
+					<PdoIndex>6142</PdoIndex>
+				</Module>
+			</Slot>
+			<Slot Name="DEVICEIO-Slot">
+				<SlotData>0000010001000400000000000000000000000000000000000000000000000000</SlotData>
+				<ModuleIdent>1950</ModuleIdent>
+				<Module Id="#x03090005" Type="DEVICEIO" Class="DEVICEIO">
+					<Name>Module 3 (DEVICEIO)</Name>
+					<ImageId>550</ImageId>
+					<ModuleData>020000009e070000000004000000000000000000000000000000000000000000</ModuleData>
+					<PdoIndex>7166</PdoIndex>
+				</Module>
+			</Slot>
+			<Slot Name="FSLOGIC">
+				<SlotData>0000010001000400000000000000000000000000000000000000000000000000</SlotData>
+				<ModuleIdent>691</ModuleIdent>
+				<Module Id="#x03090006" Type="FSLOGIC" Class="FSLOGIC">
+					<Name>Module 4 (FSLOGIC)</Name>
+					<ImageId>550</ImageId>
+					<ModuleData>02000000b3020000000004000000000000000000000000000000000000000000</ModuleData>
+					<PdoIndex>7167</PdoIndex>
+					<PdoIndex>6143</PdoIndex>
+				</Module>
+			</Slot>
+		</EtherCAT>
+	</Box>
+</TcSmItem>

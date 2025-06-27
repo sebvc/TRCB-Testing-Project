@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="E_State" Id="{e7f35a5f-f44f-4cff-9cef-2b122747adb1}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+{attribute 'to_string'}
+TYPE E_State :
+(
+	Init,
+	MovP1,
+	WaitP1,
+	MovP2,
+	WaitP2,
+	Error
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

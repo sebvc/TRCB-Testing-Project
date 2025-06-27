@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="RevSeq" Id="{33d2272b-5441-4399-8f93-8377b3cc21c8}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM RevSeq
+VAR
+	//instance of the enumeration
+	eState : E_State;
+	
+	//instances of MC2 FBs
+	fbPower		: MC_Power;
+	fbSetPos	: MC_SetPosition;
+	fbMovAbs	: MC_MoveAbsolute;
+	fbReset		: MC_Reset;
+	
+	Servo : AXIS_REF;
+	
+	//intalized variables
+	lrOverRide  : LREAL := 100;
+	lrSetPos	: LREAL := 0;
+	
+	//variable
+	udiErrID : UDINT;
+	
+	lrP1 : LREAL;
+	lrP2 : LREAL;
+	lrV1 : LREAL;
+	lrV2 : LREAL;
+	
+	tWait1 : TIME;
+	tWait2 : TIME;
+	
+	//instance for a timer
+	fbTimer : TON;
+	
+	xEnable AT %I* : BOOL;
+	xStart AT %I* : BOOL;
+	xReset AT %I*: BOOL;
+	xSetPos AT %I*: BOOL;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//create PLCxEnableave reversing sequencexEnableoccur
+
+//Outside of Case Statement
+fbPower(
+	Axis:= Servo, 
+	Enable:= xEnable, 
+	Enable_Positive:= xEnable, 
+	Enable_Negative:= xEnable, 
+	Override:= lrOverRide);
+	
+IF fbPower.Error THEN
+	eState		:= E_State.Error;
+	udiErrID	:= fbPower.ErrorID;
+END_IF
+
+//Case Statement
+CASE eState OF
+	E_State.Init:
+		lrP1 := 1500;
+		lrP2 := 9000;
+		lrV1 := 7000;
+		lrV2 := 4000;
+		
+		tWait1 := T#2S;
+		tWait2 := T#5S;
+		
+		fbSetPos(
+			Axis:= Servo, 
+			Execute:= TRUE, 
+			Position:= lrSetPos);
+			
+		IF fbPower.Status AND fbSetPos.Done AND xStart AND NOT xReset THEN
+			eState := E_State.MovP1;
+			fbSetPos(
+				Axis:= Servo, 
+				Execute:= FALSE); //function blocks need to be turned off to be able to use them again
+		END_IF
+		
+		IF fbSetPos.Error THEN
+			eState		:= E_State.Error;
+			udiErrID	:= fbSetPos.ErrorID;
+			fbSetPos(
+				Axis:= Servo, 
+				Execute:= FALSE);
+		END_IF
+	
+	E_State.MovP1:
+		fbMovAbs(
+			Axis:= Servo, 
+			Execute:= TRUE, 
+			Position:= lrP1, 
+			Velocity:= lrV1);
+			
+		IF fbMovAbs.Done THEN
+			eState := E_State.WaitP1;
+			fbMovAbs(
+				Axis:= Servo, 
+				Execute:= FALSE);
+		END_IF
+		
+		IF fbMovAbs.Error THEN
+			eState		:= E_State.Error;
+			udiErrID	:= fbMovAbs.ErrorID;
+			fbMovAbs(
+				Axis:= Servo, 
+				Execute:= FALSE);
+		END_IF
+	
+	E_State.WaitP1:
+		fbTimer(IN:= TRUE, PT:= tWait1);
+			
+		IF fbTimer.Q THEN
+			eState := E_State.MovP2;
+			fbTimer(IN:= FALSE);
+		END_IF
+	
+	E_State.MovP2:
+		fbMovAbs(
+			Axis:= Servo, 
+			Execute:= TRUE, 
+			Position:= lrP2, 
+			Velocity:= lrV2);
+			
+		IF fbMovAbs.Done THEN
+			eState := E_State.WaitP2;
+			fbMovAbs(
+				Axis:= Servo, 
+				Execute:= FALSE);
+		END_IF
+		
+		IF fbMovAbs.Error THEN
+			eState		:= E_State.Error;
+			udiErrID	:= fbMovAbs.ErrorID;
+			fbMovAbs(
+				Axis:= Servo, 
+				Execute:= FALSE);
+		END_IF
+	
+	E_State.WaitP2:
+		fbTimer(IN:= TRUE, PT:= tWait2);
+			
+		IF fbTimer.Q THEN
+			eState := E_State.MovP1;
+			fbTimer(IN:= FALSE);
+		END_IF
+	
+	E_State.Error:
+		fbReset(
+			Axis:= Servo, 
+			Execute:= xReset);
+		
+		IF fbReset.Done THEN
+			eState := E_State.Init;
+			fbSetPos(
+				Axis:= Servo, 
+				Execute:= FALSE);
+			fbMovAbs(
+				Axis:= Servo, 
+				Execute:= FALSE);
+			fbTimer(IN:= FALSE);
+		END_IF
+
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

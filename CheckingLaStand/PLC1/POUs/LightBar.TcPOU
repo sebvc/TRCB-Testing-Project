@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="LightBar" Id="{e2d2a899-a226-4a43-9b00-4d1bd0199bc4}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM LightBar
+VAR
+	aLights AT %Q* : ARRAY [1..8] OF BOOL;
+	
+	iPot AT %I* : INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//turn all lights off
+aLights[1] := aLights[2] := aLights[3] := aLights[4] := aLights[5] := aLights[6] := aLights[7] := aLights[8] := FALSE;
+
+//turn lights on
+CASE iPot OF
+	0..10000:		//lights PF10 and PF11 on
+		aLights[1] := aLights[2] := TRUE;
+	10001..20000:	//lights PF10, PF11, PF12, PF13 on
+		aLights[1] := aLights[2] := aLights[3] := aLights[4] := TRUE;
+	20001..30000:	//lights PF10, PF11, PF12, PF13, PF14, PF15 on
+		aLights[1] := aLights[2] := aLights[3] := aLights[4] := aLights[5] := aLights[6] := TRUE;
+	30001..32767: 	//lights PF10, PF11, PF12, PF13, PF14, PF15, PF16, PF17 on
+		aLights[1] := aLights[2] := aLights[3] := aLights[4] := aLights[5] := aLights[6] := aLights[7] := aLights[8] := TRUE;
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

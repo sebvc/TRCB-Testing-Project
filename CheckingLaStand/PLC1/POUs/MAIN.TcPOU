@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{c319a403-1c36-4c6d-9f6a-80f654f18144}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Script written on 06/23/2025 for the CALA-TRCB stands in the LA office
+//will need to activate config and download safeyt project
+
+//test all lights on the stand
+//turn potentiometer RA10 to turn all lights on and off
+LightBar();
+
+//motion test (drive manager 2 utalized
+//switch 10 to power/enable the motor, switch 12 to reset errors, switch 13 to run through the motion
+RevSeq();
+
+//safety test (may need to delete previous safety projects to run)
+//switch 14 to run and switch 15 to errAck
+eStopPLC();]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

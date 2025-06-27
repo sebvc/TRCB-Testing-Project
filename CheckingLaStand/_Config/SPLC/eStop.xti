@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CSafetyPlcProjDef">
+	<Project GUID="{60623049-2FB4-4564-9A59-CB136697153A}" Name="eStop" PrjFilePath="..\..\eStop\eStop.splcproj" TmcFilePath="..\..\eStop\eStop.tmc" GeneralArchiveSettings="#x000f" TargetArchiveSettings="#x0007" FileArchiveSettings="#x000e">
+		<Instance Id="#x01010010" KeepUnrestoredLinks="2">
+			<Name>eStop Instance</Name>
+			<TmcDesc GUID="{72A6D5B8-E98C-4604-8B90-09D1F8AB38A9}">
+				<Name>Safety</Name>
+				<InitSequence>PO</InitSequence>
+				<Contexts>
+					<Context>
+						<Id>1</Id>
+						<Name>Default</Name>
+					</Context>
+				</Contexts>
+			</TmcDesc>
+		</Instance>
+	</Project>
+</TcSmItem>

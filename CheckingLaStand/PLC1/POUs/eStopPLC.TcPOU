@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="eStopPLC" Id="{63542574-60fc-48cb-95d5-6b9ffb37bcbc}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM eStopPLC
+VAR
+	xSwitchSF14 AT %I* : BOOL;
+	xSwitchSF15 AT %I* : BOOL;
+	
+	xRun 	AT %Q* : BOOL; 
+	xErrAck AT %Q* : BOOL; 
+END_VAR                    
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[xRun:= xSwitchSF14;
+xErrAck := xSwitchSF15;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
