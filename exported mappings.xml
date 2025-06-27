@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<VarLinks>
+	<OwnerA Name="TIID^Device 1 (EtherCAT)">
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 8 (EL2912)">
+			<Link VarA="Term 1 (EK1200)^Term 7 (EL1918)^Module 1 (FSOE)^FSoE Inputs^FSOE" VarB="ConnectionOutputs^Message_3 RxPDO"/>
+			<Link VarA="Term 1 (EK1200)^Term 7 (EL1918)^Module 1 (FSOE)^FSoE Outputs^FSOE" VarB="ConnectionInputs^Message_3 TxPDO"/>
+		</OwnerB>
+	</OwnerA>
+	<OwnerA Name="TINC^NC-Task 1 SAF^Axes^Axis 1">
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 10 (EL7201-9014)">
+			<Link VarA="Drive^Inputs^In^nDataIn1" VarB="DRV Following error actual value^Following error actual value"/>
+			<Link VarA="Drive^Inputs^In^nDcOutputTime" VarB="InfoData^DcOutputShift"/>
+			<Link VarA="Drive^Inputs^In^nState1" VarB="DRV Statusword^Statusword"/>
+			<Link VarA="Drive^Inputs^In^nState2" VarB="DRV Statusword^Statusword" Size="8" OffsB="8"/>
+			<Link VarA="Drive^Inputs^In^nState4" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
+			<Link VarA="Drive^Inputs^In^nState4" VarB="WcState^WcState"/>
+			<Link VarA="Drive^Outputs^Out^nCtrl1" VarB="DRV Controlword^Controlword"/>
+			<Link VarA="Drive^Outputs^Out^nCtrl2" VarB="DRV Controlword^Controlword" Size="8" OffsB="8"/>
+			<Link VarA="Drive^Outputs^Out^nDataOut1" VarB="DRV Target position^Target position"/>
+			<Link VarA="Drive^Outputs^Out^nDataOut2" VarB="DRV Target velocity^Target velocity"/>
+			<Link VarA="Enc^Inputs^In^nDataIn1" VarB="FB Position^Position"/>
+			<Link VarA="Enc^Inputs^In^nDcInputTime" VarB="InfoData^DcInputShift"/>
+			<Link VarA="Enc^Inputs^In^nState4" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
+			<Link VarA="Enc^Inputs^In^nState4" VarB="WcState^WcState"/>
+		</OwnerB>
+	</OwnerA>
+	<OwnerA Name="TIPC^PLC1^PLC1 Instance">
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL1859)">
+			<Link VarA="PlcTask Inputs^RevSeq.xEnable" VarB="Channel 4^Input"/>
+			<Link VarA="PlcTask Inputs^RevSeq.xReset" VarB="Channel 2^Input"/>
+			<Link VarA="PlcTask Inputs^RevSeq.xSetPos" VarB="Channel 3^Input"/>
+			<Link VarA="PlcTask Inputs^RevSeq.xStart" VarB="Channel 1^Input"/>
+			<Link VarA="PlcTask Inputs^eStopPLC.xSwitchSF14" VarB="Channel 5^Input"/>
+			<Link VarA="PlcTask Inputs^eStopPLC.xSwitchSF15" VarB="Channel 6^Input"/>
+			<Link VarA="PlcTask Outputs^LightBar.aLights[1]" VarB="Channel 9^Output"/>
+			<Link VarA="PlcTask Outputs^LightBar.aLights[2]" VarB="Channel 10^Output"/>
+			<Link VarA="PlcTask Outputs^LightBar.aLights[3]" VarB="Channel 11^Output"/>
+			<Link VarA="PlcTask Outputs^LightBar.aLights[4]" VarB="Channel 12^Output"/>
+			<Link VarA="PlcTask Outputs^LightBar.aLights[5]" VarB="Channel 13^Output"/>
+			<Link VarA="PlcTask Outputs^LightBar.aLights[6]" VarB="Channel 14^Output"/>
+			<Link VarA="PlcTask Outputs^LightBar.aLights[7]" VarB="Channel 15^Output"/>
+			<Link VarA="PlcTask Outputs^LightBar.aLights[8]" VarB="Channel 16^Output"/>
+		</OwnerB>
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL3255)">
+			<Link VarA="PlcTask Inputs^LightBar.iPot" VarB="AI Standard Channel 1^Value"/>
+		</OwnerB>
+		<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 8 (EL2912)">
+			<Link VarA="PlcTask Outputs^eStopPLC.xErrAck" VarB="StandardOutputs^Standard In Var 1"/>
+			<Link VarA="PlcTask Outputs^eStopPLC.xRun" VarB="StandardOutputs^Standard In Var 2"/>
+		</OwnerB>
+		<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 1">
+			<Link VarA="PlcTask Inputs^RevSeq.Servo.NcToPlc" VarB="Outputs^ToPlc"/>
+			<Link VarA="PlcTask Outputs^RevSeq.Servo.PlcToNc" VarB="Inputs^FromPlc"/>
+		</OwnerB>
+	</OwnerA>
+</VarLinks>
